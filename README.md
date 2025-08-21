@@ -1,69 +1,117 @@
-# React + TypeScript + Vite
+# React UI Components – InputField & DataTable
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This repository contains two reusable UI components built with **React, TypeScript, TailwindCSS, and Storybook**:
 
-Currently, two official plugins are available:
+1. **InputField** – A flexible input component with validation, variants, sizes, clear button, and password toggle.
+2. **DataTable** – A table component with sorting, row selection (single/multiple), loading state, and responsive design.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 📂 Folder Structure
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+src/
+├─ components/
+│ ├─ InputField/
+│ │ ├─ InputField.tsx
+│ │ ├─ InputField.stories.tsx
+│ │ ├─ InputField.test.tsx
+│ │ └─ types.ts
+│ ├─ DataTable/
+│ │ ├─ DataTable.tsx
+│ │ ├─ DataTable.stories.tsx
+│ │ ├─ DataTable.test.tsx
+│ │ └─ types.ts
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🛠️ Tech Stack
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- **React** (with Hooks & functional components)
+- **TypeScript** (with proper typing for props & generics)
+- **TailwindCSS** (for styling)
+- **Storybook** (for interactive component documentation)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 🚀 Getting Started
+
+### 1. Clone the repo
+```bash
+git clone https://github.com/surishekh05/Uzence-design.git
+cd Uzence-design
+
+
+---
+
+## Install dependencies
+
+npm install
+
+---
+
+## Run Storybook
+
+npm run storybook
+
+Storybook will start on http://localhost:6006/.
+
+## Run tests
+
+npm run test
+
+---
+
+Components
+🔹 InputField
+
+A flexible input component with:
+
+Variants: filled, outlined, ghost
+
+Sizes: sm, md, lg
+
+States: disabled, invalid, loading
+
+Features: label, helper text, error message, clear button, password toggle
+
+Dark mode support (using Tailwind dark: classes)
+
+Example:
+
+<InputField
+  label="Username"
+  placeholder="Enter your username"
+  helperText="This will be public"
+  variant="outlined"
+  size="md"
+/>
+
+---
+
+🔹 DataTable
+
+A table component with:
+
+Display tabular data
+
+Column sorting (3-state: asc → desc → none)
+
+Row selection (single/multiple) with highlight
+
+Loading state
+
+Responsive design
+
+Example:
+
+<DataTable
+  data={users}
+  columns={[
+    { key: 'name', title: 'Name', dataIndex: 'name', sortable: true },
+    { key: 'email', title: 'Email', dataIndex: 'email' },
+  ]}
+  selectable="multiple"
+  onRowSelect={(rows) => console.log(rows)}
+/>
 ```
