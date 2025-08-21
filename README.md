@@ -114,4 +114,4 @@ Example:
   selectable="multiple"
   onRowSelect={(rows) => console.log(rows)}
 />
-```
+
